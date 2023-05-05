@@ -1,0 +1,19 @@
+{
+  "name": "flowrunner-cli",
+  "version": "0.1.0",
+  "description": "Testing the methods for running flows",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Theron Burger",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/cors": "^4.0.0",
+    "boxen": "^7.0.2",
+    "figlet": "^1.5.2",
+    "gradient-string": "^2.0.2"
+  }
+}
