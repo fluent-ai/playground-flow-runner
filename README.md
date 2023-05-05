@@ -1,5 +1,7 @@
 # Flow Runner Playground
 
-+ experiment with node & flow models
-+ prototype flow runner
+
+- [ ] Check out Clickup Bindings
+- experiment with node & flow models
+- prototype flow runner
   
