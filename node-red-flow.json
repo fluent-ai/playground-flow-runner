@@ -1,0 +1,213 @@
+[
+    {
+        "id": "c93b60a219751c55",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7256dc036f9a31a4",
+        "type": "aedes broker",
+        "z": "c93b60a219751c55",
+        "name": "",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "persistence_bind": "memory",
+        "dburl": "",
+        "usetls": false,
+        "x": 190,
+        "y": 100,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "89686670a01ae0a6",
+        "type": "inject",
+        "z": "c93b60a219751c55",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 180,
+        "wires": [
+            [
+                "150c167bfebeaf6e"
+            ]
+        ]
+    },
+    {
+        "id": "150c167bfebeaf6e",
+        "type": "function",
+        "z": "c93b60a219751c55",
+        "name": "test sequence",
+        "func": "msg.payload = {\n    name: 'test',\n    dataset: [\n        {\n            type: 'mqttSend', topic: '/test', payload: '{\"myPayload\": \"starting\"}'\n        },\n        {\n            type: 'delay', delay: 1000\n        },\n        {\n            type: 'mqttSend', topic: '/test', payload: '{\"myPayload\": \"in the middle\"}'\n        },\n        {\n            type: 'delay', delay: 1000\n        },\n        {\n            type: 'mqttSend', topic: '/test', payload: '{\"myPayload\": \"done\"}'\n        },\n    ],\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 180,
+        "wires": [
+            [
+                "1b6ad79558ef52f3"
+            ]
+        ]
+    },
+    {
+        "id": "1b6ad79558ef52f3",
+        "type": "mqtt out",
+        "z": "c93b60a219751c55",
+        "name": "",
+        "topic": "sequencePlayer/sequences/test",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4ab4b82c6ebc4473",
+        "x": 640,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c752e80856108ba6",
+        "type": "mqtt in",
+        "z": "c93b60a219751c55",
+        "name": "",
+        "topic": "#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4ab4b82c6ebc4473",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "37575115a4ea61d7"
+            ]
+        ]
+    },
+    {
+        "id": "37575115a4ea61d7",
+        "type": "debug",
+        "z": "c93b60a219751c55",
+        "name": "debug 18",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "9d5056c81f29f077",
+        "type": "inject",
+        "z": "c93b60a219751c55",
+        "name": "sequencePlayer/sequences/test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "sequencePlayer/sequences/test",
+        "payloadType": "str",
+        "x": 230,
+        "y": 260,
+        "wires": [
+            [
+                "0e072b3362cf014d"
+            ]
+        ]
+    },
+    {
+        "id": "0e072b3362cf014d",
+        "type": "mqtt out",
+        "z": "c93b60a219751c55",
+        "name": "",
+        "topic": "sequencePlayer/doSequence",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4ab4b82c6ebc4473",
+        "x": 630,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "4ab4b82c6ebc4473",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
