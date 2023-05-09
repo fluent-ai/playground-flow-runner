@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
-import { IExecutionNode } from './types'
+import { IExecutionNode } from './types.js'
 import { Node, Edge } from 'reactflow'
 
-import { input as methodInput } from './nodeMethods/input'
-import { output as methodOutput } from './nodeMethods/output'
-import { textToUpperCase as methodTextToUpperCase } from './nodeMethods/textToUpperCase'
-import { template as methodTemplate } from './nodeMethods/template'
-import { json as methodJson } from './nodeMethods/json'
+import { input as methodInput } from './nodeMethods/input.js'
+import { output as methodOutput } from './nodeMethods/output.js'
+import { textToUpperCase as methodTextToUpperCase } from './nodeMethods/textToUpperCase.js'
+import { template as methodTemplate } from './nodeMethods/template.js'
+import { json as methodJson } from './nodeMethods/json.js'
 
 export class FlowRunner {
   private nodes: IExecutionNode[]
@@ -55,7 +55,10 @@ export class FlowRunner {
   private async executeNode(node: IExecutionNode, msg: Record<string, unknown>) {
     console.log(`🏃 Running ${node.type} node with id ${node.id}`)
     node.method(msg, node.data).then(msg => {
-      node.callbacks.forEach(callback => callback(msg))
+      // Timeout only for demo purposes
+      setTimeout(() => {
+        node.callbacks.forEach(callback => callback(msg))
+      }, 1000)
     })
   }
 

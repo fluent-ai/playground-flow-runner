@@ -8,7 +8,7 @@ module.exports = {
     node: true,
   },
   rules: {
-    'import/extensions': ['error', 'never'],
+    'import/extensions': ['warn', 'always'],
     quotes: ['error', 'single'],
     indent: ['error', 2],
     'no-console': 'off',

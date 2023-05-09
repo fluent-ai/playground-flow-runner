@@ -63,6 +63,11 @@ export const edges = [
     target: '4',
   },
   {
+    id: 'e3-5',
+    source: '3',
+    target: '5',
+  },
+  {
     id: 'e4-5',
     source: '4',
     target: '5',

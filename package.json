@@ -17,7 +17,10 @@
     "format:check": "prettier \"./**\" --ignore-unknown --check"
   },
   "dependencies": {
+    "boxen": "^7.1.0",
     "dotenv": "^16.0.0",
+    "figlet": "^1.6.0",
+    "gradient-string": "^2.0.2",
     "mustache": "^4.2.0",
     "nanoevents": "^7.0.1",
     "reactflow": "^11.7.0",

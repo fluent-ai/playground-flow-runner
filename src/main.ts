@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
-import { FlowRunner } from './FlowRunner'
-import { nodes, edges } from './mockData'
+import './banner.js'
+import { FlowRunner } from './FlowRunner.js'
+import { nodes, edges } from './mockData.js'
 
 const flowRunner = new FlowRunner()
 
