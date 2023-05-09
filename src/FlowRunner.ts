@@ -5,6 +5,8 @@ import { Node, Edge } from 'reactflow'
 import { input as methodInput } from './nodeMethods/input'
 import { output as methodOutput } from './nodeMethods/output'
 import { textToUpperCase as methodTextToUpperCase } from './nodeMethods/textToUpperCase'
+import { template as methodTemplate } from './nodeMethods/template'
+import { json as methodJson } from './nodeMethods/json'
 
 export class FlowRunner {
   private nodes: IExecutionNode[]
@@ -93,6 +95,10 @@ export class FlowRunner {
       return methodOutput
     case 'textToUpperCase':
       return methodTextToUpperCase
+    case 'template':
+      return methodTemplate
+    case 'json':
+      return methodJson
     default:
       throw new Error(`Node type ${type} not found`)
     }
