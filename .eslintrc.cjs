@@ -8,7 +8,10 @@ module.exports = {
     node: true,
   },
   rules: {
-    'no-console': 'error',
+    'import/extensions': ['error', 'never'],
+    quotes: ['error', 'single'],
+    indent: ['error', 2],
+    'no-console': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     '@typescript-eslint/no-dupe-class-members': ['error'],
     '@typescript-eslint/no-useless-constructor': ['error'],
