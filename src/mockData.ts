@@ -2,23 +2,44 @@ export const nodes = [
   {
     id: '1',
     type: 'input',
-    data: { label: 'Text input',  input: 'some nice custom text'  },
+    data: {
+      label: 'Text input',
+      input: `{
+        "name" : "Mr Wiggles",
+        "color" : "pink",
+        "number" : 3,
+        "balloons" : true
+      }
+      `,
+    },
     position: { x: 0, y: 50 },
   },
   {
     id: '2',
-    type: 'textToUpperCase',
-    data: { label: 'To Uppercase' },
+    type: 'json',
+    data: {
+      label: 'JSON',
+    },
     position: { x: 300, y: 50 },
   },
   {
     id: '3',
+    type: 'template',
+    data: {
+      label: 'Template',
+      template: `Hello {{msg.payload.name}}!
+      Here! have {{msg.payload.number}} {{msg.payload.color}} balloons.`,
+    },
+    position: { x: 300, y: 50 },
+  },
+  {
+    id: '4',
     type: 'textToUpperCase',
     data: { label: 'To Uppercase' },
     position: { x: 300, y: 50 },
   },
   {
-    id: '4',
+    id: '5',
     type: 'output',
     data: { label: 'Output' },
     position: { x: 650, y: 25 },
@@ -41,5 +62,9 @@ export const edges = [
     source: '3',
     target: '4',
   },
+  {
+    id: 'e4-5',
+    source: '4',
+    target: '5',
+  },
 ]
-

@@ -5,7 +5,6 @@ export async function textToUpperCase(msg: Record<string, unknown>): Promise<Rec
     if (!msg.payload || typeof msg.payload !== 'string') {
       reject(new Error('msg.payload is not a string'))
     }
-    console.log('about to resolve')
     resolve({ ...msg, payload: (msg.payload as string).toUpperCase() })
   })
 }
