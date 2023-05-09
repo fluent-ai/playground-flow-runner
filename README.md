@@ -1,7 +1,14 @@
-# Flow Runner Playground
+# 🏃 Flow Runner Experiments
 
 
-- [ ] Check out Clickup Bindings
-- experiment with node & flow models
-- prototype flow runner
-  
+Using Nano Events
+https://github.com/ai/nanoevents#readme
+
+## Dev
+
+run with `npm run start:dev`
+
+## Notes
+
+Project bootstrapped using [NodeJS Starter ToolKit](https://github.com/vitorsalgado/create-nodejs-ts).  
+
