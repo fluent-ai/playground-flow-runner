@@ -7,6 +7,7 @@ import { output as methodOutput } from './nodeMethods/output.js'
 import { textToUpperCase as methodTextToUpperCase } from './nodeMethods/textToUpperCase.js'
 import { template as methodTemplate } from './nodeMethods/template.js'
 import { json as methodJson } from './nodeMethods/json.js'
+import { userFunction as methodUserFunction } from './nodeMethods/userFunction.js'
 
 export class FlowRunner {
   private nodes: IExecutionNode[]
@@ -55,10 +56,7 @@ export class FlowRunner {
   private async executeNode(node: IExecutionNode, msg: Record<string, unknown>) {
     console.log(`🏃 Running ${node.type} node with id ${node.id}`)
     node.method(msg, node.data).then(msg => {
-      // Timeout only for demo purposes
-      setTimeout(() => {
-        node.callbacks.forEach(callback => callback(msg))
-      }, 1000)
+      node.callbacks.forEach(callback => callback(msg))
     })
   }
 
@@ -102,6 +100,8 @@ export class FlowRunner {
       return methodTemplate
     case 'json':
       return methodJson
+    case 'userFunction':
+      return methodUserFunction
     default:
       throw new Error(`Node type ${type} not found`)
     }

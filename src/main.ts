@@ -5,5 +5,5 @@ import { nodes, edges } from './mockData.js'
 
 const flowRunner = new FlowRunner()
 
-flowRunner.sync({ nodes, edges })
+flowRunner.sync({ nodes, edges }) // sync the flow runner with React Flow's nodes and edges
 flowRunner.executeFlow()
