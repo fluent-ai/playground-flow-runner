@@ -44,6 +44,18 @@ export const nodes = [
     data: { label: 'Output' },
     position: { x: 650, y: 25 },
   },
+  {
+    id: '6',
+    type: 'userFunction',
+    data: { label: 'Function', userFunction: 'msg.payload.number = msg.payload.number * 2; return msg' },
+    position: { x: 650, y: 25 },
+  },
+  {
+    id: '7',
+    type: 'output',
+    data: { label: 'Output' },
+    position: { x: 650, y: 25 },
+  },
 ]
 
 export const edges = [
@@ -71,5 +83,15 @@ export const edges = [
     id: 'e4-5',
     source: '4',
     target: '5',
+  },
+  {
+    id: 'e2-6',
+    source: '2',
+    target: '6',
+  },
+  {
+    id: 'e6-7',
+    source: '6',
+    target: '7',
   },
 ]
